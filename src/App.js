@@ -8,17 +8,20 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [currentBook, setCurrentBook] = useState(0);
   const [cart, setCart] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const books = [
     {
       title: "Harry Potter",
       image: { src: HP1 },
+      price: '8.99',
       genre: [{ id: 0, text: "Fiction", isCorrect: true }],
     },
 
     {
       title: "The Player",
       image: { src: bb1 },
+      price:'5.45',
       genre: [{ id: 2, text: "Autobiograpy", isCorrect: true }],
     },
   ];
@@ -30,7 +33,6 @@ function App() {
     // Increment the score
     if (isCorrect) {
       setCart(cart + 1);
-      <img src={currentBook.image} alt="cat" />;
     }
 
     if (currentBook + 1 < books.length) {
@@ -39,20 +41,38 @@ function App() {
       setShowResults(true);
     }
   };
+/* Add items to the cart */
+  const addItemToCart = (cart) => {
+    // Logic to add item to the cart
+    setCart([...currentBook, cart]);
+
+    // Logic to add the total price
+    setTotalPrice(totalPrice + currentBook.price);
+  }
+
+  const removeItemFromCart = (cart) => {
+    // Logic to remove item from the cart
+    const updatedCart = cart.filter((cart) => cart.id !== cart.id);
+    setCart(updatedCart)
+
+    // Logic to reduce the total price
+    setTotalPrice(totalPrice - currentBook.price);
+  }
+
+
 
   /* Resets the App */
   const restartPurchase = () => {
     setCart(0);
     setCurrentBook(0);
     setShowResults(false);
+    setTotalPrice(0);
   };
 
   return (
     <React.Fragment>
       <section>
         <div className="App ">
-
-
           <div className="App">
             {/* 1. Header  */}
             <h1>Book Shop E-commerce App</h1>
@@ -76,6 +96,19 @@ function App() {
                 {/* Current Book  */}
                 <h2>Books added to cart: {currentBook + 1}</h2>
                 <h3 className="book-text">{books[currentBook].title}</h3>
+                 <h3 className="book-text">{books[currentBook].price}</h3>
+                <div>
+
+                {/* Price updated to cart  */}
+                <ul>
+                    <li key={books[currentBook].id}>{books[currentBook].title} - £{books[currentBook].price}</li>
+                  )}
+                </ul>
+
+                {/* Display the total price */}
+                <p>Total Price: £{totalPrice}</p>
+              </div>
+
 
                 {/* List of books in cart  */}
                 <ul>
@@ -95,11 +128,12 @@ function App() {
                   })}
                 </ul>
               </div>
-            )}
+           )}
           </div>
         </div>
       </section>
     </React.Fragment>
+
   );
 }
 
