@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import HP1 from "./HP1.jpg";
-import bb1 from "./bb1.jpg";
+import HP1 from "./assets/HP1.jpg";
+import bb1 from "./assets/bb1.jpg";
+import { ShoppingCart } from "phosphor-react";
 
 function App() {
   // Properties
@@ -14,21 +15,21 @@ function App() {
     {
       title: "Harry Potter",
       image: { src: HP1 },
-      price: '8.99',
+      price: "8.99",
       genre: [{ id: 0, text: "Fiction", isCorrect: true }],
     },
 
     {
       title: "The Player",
       image: { src: bb1 },
-      price:'5.45',
+      price: "5.45",
       genre: [{ id: 2, text: "Autobiograpy", isCorrect: true }],
     },
   ];
 
-  // Helper Functions
+  // Helpers
 
-  /* A possible answer was clicked */
+  /* An item was clicked */
   const titleClicked = (isCorrect) => {
     // Increment the score
     if (isCorrect) {
@@ -41,25 +42,23 @@ function App() {
       setShowResults(true);
     }
   };
-/* Add items to the cart */
+  /* Add items to the cart */
   const addItemToCart = (cart) => {
     // Logic to add item to the cart
     setCart([...currentBook, cart]);
 
     // Logic to add the total price
     setTotalPrice(totalPrice + currentBook.price);
-  }
+  };
 
   const removeItemFromCart = (cart) => {
     // Logic to remove item from the cart
     const updatedCart = cart.filter((cart) => cart.id !== cart.id);
-    setCart(updatedCart)
+    setCart(updatedCart);
 
     // Logic to reduce the total price
     setTotalPrice(totalPrice - currentBook.price);
-  }
-
-
+  };
 
   /* Resets the App */
   const restartPurchase = () => {
@@ -70,7 +69,6 @@ function App() {
   };
 
   return (
-    <React.Fragment>
       <section>
         <div className="App ">
           <div className="App">
@@ -78,14 +76,23 @@ function App() {
             <h1>Book Shop E-commerce App</h1>
 
             {/* 2. Current Cart  */}
-            <h1>Your Cart: {cart} 🛒 </h1>
 
+            <div>
+              <h1>
+                Your Cart: {cart}
+                <ShoppingCart color="#AE2983" weight="fill" size={52} />
+              </h1>
+            </div>
             {/* 3. Current book status  */}
             {showResults ? (
               /* 4. Checkout Line Up */
               <div className="checkout-status">
                 <h1>Checkout Status </h1>
-                <h2>You have {cart} books in your cart</h2>
+                <div>
+                <h2>
+                <ShoppingCart color="#AE2983" weight="fill" size={52} />
+                You have {cart} books in your cart </h2>
+                </div>
                 <button onClick={() => restartPurchase()}>Reset</button>
                 <img src={HP1} alt="HP1" />
                 <img src={bb1} alt="bb1" />
@@ -96,25 +103,24 @@ function App() {
                 {/* Current Book  */}
                 <h2>Books added to cart: {currentBook + 1}</h2>
                 <h3 className="book-text">{books[currentBook].title}</h3>
-                 <h3 className="book-text">{books[currentBook].price}</h3>
+                <h3 className="book-text">{books[currentBook].price}</h3>
                 <div>
+                  {/* Price updated to cart  */}
+                  <ul>
+                    <li key={books[currentBook].id}>
+                      {books[currentBook].title} - £{books[currentBook].price}
+                    </li>
+                    )}
+                  </ul>
 
-                {/* Price updated to cart  */}
-                <ul>
-                    <li key={books[currentBook].id}>{books[currentBook].title} - £{books[currentBook].price}</li>
-                  )}
-                </ul>
-
-                {/* Display the total price */}
-                <p>Total Price: £{totalPrice}</p>
-              </div>
-            );
-
+                  {/* Display the total price */}
+                  <p>Total Price: £{totalPrice}</p>
+                </div>
+                );
                 {/* List of books in cart  */}
                 <ul>
                   {books[currentBook].genre.map((genre) => {
                     return (
-
                       <li
                         key={genre.id}
                         onClick={() => titleClicked(genre.isCorrect)}
@@ -132,7 +138,6 @@ function App() {
           </div>
         </div>
       </section>
-    </React.Fragment>
   );
 }
 
