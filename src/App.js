@@ -108,7 +108,7 @@ function App() {
                 {/* Display the total price */}
                 <p>Total Price: £{totalPrice}</p>
               </div>
-
+            );
 
                 {/* List of books in cart  */}
                 <ul>
@@ -128,12 +128,11 @@ function App() {
                   })}
                 </ul>
               </div>
-           )}
+            )}
           </div>
         </div>
       </section>
     </React.Fragment>
-
   );
 }
 
