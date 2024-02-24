@@ -1,12 +1,12 @@
 #### Commit message
-### extended expanation
-In this commit I added one photo element.
-I added an id onto the Book class.
-It can be accessed by dot notation.
 
-From the previous commit ...
-## TEST FILE ADDED TO ECOM FILE
-`test/test.js` has a test file.
-It has an assert equal test through an array which passes.
+Added a navbar on `App.js` using an `<nav>` tab
+did styling in `App.css`
 
-It is run by calling `npm test` in the command line.
+## Points to imporove on for the next phase
+
+Create the Book price to add up and do the totaling.
+
+App is rendering in double vision. If using without Strict Mode, app crashes, left in Strict Mode.
+
+Images need to be calling properly, at the moment just using {} to import JS code as `<img >`.
