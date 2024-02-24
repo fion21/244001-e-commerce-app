@@ -4,26 +4,20 @@
   font-size: 24px;
 }
 
-.shopping-card {
-  /* Center the div  */
-  margin: right;
+.book-card {
   display: inline-block;
-  box-shadow: rgba(212, 8, 134, 0.25) 0px 30px 60px -12px,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-  /* Dimensions  */
-  width: 80%; /* Can be in percentage also. */
+  text-align: center;
+  background-color: blueviolet;
+  width: 80%;
   height: auto;
   font-size: 24px;
 }
 
-
 .book-text {
   color: white;
-  font-size: 24px;
+  font-size: 16px;
   padding: 16px;
 }
-
-
 
 button {
   background-color: rgb(222, 16, 191);
