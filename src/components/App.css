@@ -1,0 +1,72 @@
+@import url(<linkrel="preconnect"href="https://fonts.googleapis.com"><linkrel="preconnect"href="https://fonts.gstatic.com"crossorigin><linkhref="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"rel="stylesheet">)
+.App {
+  font-size: 24px;
+}
+
+.navbar {
+  background-color: rgba(222, 16, 191);
+  text-align: center;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 650;
+  border: 25px;
+  font-size: 30px;
+  display: flex;
+  padding: 26px;
+  padding-top: 26px;
+  justify-content: space;
+  margin: auto;
+  cursor: pointer;
+}
+
+.book-card {
+  background-color: rgb(6, 15, 113);
+  width: 50%;
+  color: white;
+  font-size: 24px;
+  border-radius: 34px;
+  padding: 26px;
+  padding-top: 40px;
+  margin-top: 40px;
+  margin-left: 60px;
+  gap: 2rem;
+  position: relative;
+  font-family: "Roboto Mono", monospace;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background-color: rgb(222, 16, 191);
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 350px;
+  margin-left: 15dvh;
+  list-style: none;
+  font-family: "Roboto Mono", monospace;
+  transition-duration: 1s;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cart {
+  font-size: 24px;
+  padding: 16px;
+  font-family: "Roboto Mono", monospace;
+  color: rgb(6, 15, 113);
+  border-bottom: rgb(6, 15, 113);
+  padding-right: 70px;
+  text-align: right;
+}
+
+.div-text {
+  background-color: rgb(6, 15, 113);
+  font-family: "Roboto Mono", monospace;
+  border-bottom: rgb(6, 15, 113);
+  color: rgb(6, 15, 113);
+  padding-left: 100px;
+}
