@@ -1,5 +1,6 @@
-const sum = require('./sum');
+import sum  from "../sum";
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+
+test("Should raise an error if one of the inputs is not a number", function() {
+  expect(() => sum("0", -2)).toThrowError("Both arguments must be numbers");
 });
