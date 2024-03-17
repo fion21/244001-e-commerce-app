@@ -42,5 +42,13 @@
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",
     "web-vitals": "^3.5.2"
-  }
+  },
+  "description": "Re-rendered/renamed cartComponent to Cart.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
