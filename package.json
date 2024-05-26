@@ -1,5 +1,6 @@
 {
   "name": "ecom",
+  "homepage": "https://fion21.github.io/244001-e-commerce-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,8 +10,10 @@
     "add": "^2.0.6",
     "eslint": "^8.56.0",
     "eslint-plugin-jest": "^27.9.0",
+    "gh-pages": "^6.1.1",
     "phosphor-icons": "^1.4.2",
     "phosphor-react": "^1.4.1",
+    "postcss-import-url": "^7.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
@@ -19,7 +22,9 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.24.5",
     "@babel/preset-react": "^7.23.3",
     "web-vitals": "^3.5.2"
