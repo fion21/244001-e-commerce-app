@@ -5,7 +5,7 @@ import "./App.css";
 import hp1 from "../images/hp1.jpg";
 import bb1 from "../images/bb1.jpg";
 
-const booksData = [
+export const booksData = [
   {
     id: 1,
     title: "Harry Potter",
@@ -22,15 +22,36 @@ const booksData = [
   },
 ];
 
+export function addBook(cart, book) {
+  return cart.concat([book]);
+}
+
+export function removeBookFromCart(cart, itemToRemove) {
+  //return cart.filter((item) => item.id !== itemToRemove.id);
+  let result = [];
+  let found = false;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id === itemToRemove.id && !found) {
+      found = true;
+  } else {
+      result.push(cart[i]);
+    };
+
+
+  }
+      return result;
+
+}
+
 function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (book) => {
-    setCart([...cart, book]);
+    setCart(addBook(cart, book));
   };
 
   const removeFromCart = (itemToRemove) => {
-    setCart(cart.filter((item) => item.id !== itemToRemove.id));
+    setCart(removeBookFromCart(cart, itemToRemove));
   };
 
   return (
